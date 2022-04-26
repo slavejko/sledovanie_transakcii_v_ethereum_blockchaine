@@ -10,9 +10,9 @@ The installation process for each branch is described in that branch's readme fi
 - Branch [server](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/server) is used to run the application. For this to run successfully, data will need to be provided.
 
 - Branch [data](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/data) contains data files for one day,
--  specifically for 19th of March, 2022. This dataset was made using python script from branch 
--  [data_import_python](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/data_import_python), 
--  so if there is desire for more data, that can be done following instructions from that branch.
+  specifically for 19th of March, 2022. This dataset was made using python script from branch 
+  [data_import_python](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/data_import_python), 
+  so if there is desire for more data, that can be done following instructions from that branch.
 
 - Branch [data_import_python](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/data_import_python) hosts python script and manual on how to import and process data from blockchain into the database.
 
