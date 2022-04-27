@@ -24,9 +24,9 @@ The following things are necessary in order to run this script successfully.
 
 ## Setup
 
-Having *Node.js* and *npm* installed, **D3** and **express** libraries need to be installed. This can be achieved via npm. Since npm provides [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json) file, all that is needed to be done is to run following command from within the cloned repository, which contains the files to the project. More specifically, the [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json) file needs to be present in your current directory.
+Having *Node.js* and *npm* installed, **D3** and **express** libraries need to be installed. This can be achieved via npm. Since npm provides [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/package.json) file, all that is needed to be done is to run following command from within the cloned repository, which contains the files to the project. More specifically, the [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/package.json) file needs to be present in your current directory.
 
-Installing dependencies from [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json):
+Installing dependencies from [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/package.json):
 
 ```bash
 npm install
