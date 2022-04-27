@@ -1,12 +1,14 @@
 # Application
-.
-This branch contains frontend and backend to the application. It consists of JavaScript file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine), which acts as a webserver and communicates with MongoDB database. 
 
-Then there is a frontend part of the project, which contains two JavaScript files, [**one**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine) and [**two**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine). 
+This branch contains Frontend and Backend to the application. 
 
-- One is responsible purely for saving input data from [**index.html**]() file into the browser local storage, and checking for empty or incorrect inputs.
+Backend consists of JavaScript file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js), which acts as a webserver and communicates with MongoDB database and Frontend as well. 
 
-- Two is handling *POST* requests to the **server**, then accepting and parsing of the response. At the end, it is also responsible for graphical representation and interaction. 
+Then there is a Frontend part of the project, which contains two JavaScript files, [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/results.js) and [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/js/data_saver.js). 
+
+- [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/js/data_saver.js) is responsible purely for saving input data from [**index.html**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/index.html) file into the browser local storage, and checking for empty or incorrect inputs.
+
+- [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/results.js) is handling *POST* requests to the **server**, then accepting and parsing of the response. At the end, it is also responsible for graphical representation and interaction. 
 
 
 ## Requirements
@@ -21,25 +23,32 @@ The following things are necessary in order to run this script successfully.
 
 ## Setup
 
-Having *Node.js* and *npm* installed, **D3** and **express** libraries need to be installed. This can be achieved via npm. Since npm provides [*package.json*](https://www.npmjs.com/) file, all that is needed to be done is to run following command from within the cloned repository, which contains the files to the project. More specifically, the [*package.json*](https://www.npmjs.com/) file needs to be present in your current directory.
+Having *Node.js* and *npm* installed, **D3** and **express** libraries need to be installed. This can be achieved via npm. Since npm provides [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json) file, all that is needed to be done is to run following command from within the cloned repository, which contains the files to the project. More specifically, the [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json) file needs to be present in your current directory.
 
-Installing dependencies from [*package.json*](https://www.npmjs.com/):
+Installing dependencies from [*package.json*](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/package.json):
+
 ```bash
 npm install
 ```
 
 ## Code modification
 
-If you wish to change the parameters, for example to change the port for the webserver, you can do this as shown below.
+If you wish to change the parameters, for example to change the port for the webserver, you can do this as shown below in the [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine) file.
 
 ```python
-TODO 
+const uri = "mongodb://localhost:27017";                    // to change the address and port of the database
+const dbName = "ethereum_data";                             // to change the name of the database       
+const collection_to = "data_to";                            // to change collection name for direction "TO" (incoming)
+const collection_from = "data_from";                        // to change collection name for direction "FROM" (outgoing)
+const publicFolder = "preDemo";                             // to change the name of the public folder containing frontend
+const appPort = 3000;                                       // to change the port of endpoint
 ```
 
 
 ## Running the script
 
-After modifying the code (if necessary), the application can be started by running from the directory which contains the file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine):
+After modifying the code (if necessary), the application can be started by running from the directory which contains the file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js):
+
 ```bash
 node server.js
 ```
