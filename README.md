@@ -4,11 +4,11 @@ This branch contains Frontend and Backend to the application.
 
 Backend consists of JavaScript file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js), which acts as a webserver and communicates with MongoDB database and Frontend as well. 
 
-Then there is a Frontend part of the project, which contains two JavaScript files, [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/results.js) and [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/js/data_saver.js). 
+Then there is a Frontend part of the project, which contains two JavaScript files, [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/result.js) and [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/js/data_saver.js). 
 
-- [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/js/data_saver.js) is responsible purely for saving input data from [**index.html**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/index.html) file into the browser local storage, and checking for empty or incorrect inputs.
+- [**data_saver.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/js/data_saver.js) is responsible purely for saving input data from [**index.html**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/index.html) file into the browser local storage, and checking for empty or incorrect inputs.
 
-- [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/results.js) is handling *POST* requests to the **server**, then accepting and parsing of the response. At the end, it is also responsible for graphical representation and interaction. 
+- [**result.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/public/result.js) is handling *POST* requests to the **server**, then accepting and parsing of the response. At the end, it is also responsible for graphical representation and interaction. 
 
 
 ## Requirements
