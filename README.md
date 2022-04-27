@@ -61,6 +61,6 @@ myMongoCollection = mongoDB[collection_name]
 Last thing you need to specify is to decide, which direction you want the data to be stored as. The graphical part of the project display either incoming or outgoing transactions, and so the data is also stored this way to the database.
 
 ```python
-import_direction = "outgoing"                # Either *outgoing* or *incoming* values
+import_direction = "from"                # Either *from* (outgoing transactions) or *to* (incoming transactions) values
 ```
 After running the script, if all requirements are met, it should successfully import the data.
