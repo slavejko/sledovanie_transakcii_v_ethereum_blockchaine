@@ -1,0 +1,22 @@
+{
+  "name": "sledovanie_transakcii_v_ethereum_blockchaine",
+  "version": "1.0.0",
+  "description": "Tool for transaction tracking and graphical representation made during Master's thesis for FEI STU BA",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ethereum",
+    "Blockchain",
+    "Tracing",
+    "JavaScript"
+  ],
+  "author": "Bc. Slavomír Slavejko",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^7.4.4",
+    "express": "^4.18.0",
+    "mongodb": "^4.5.0"
+  }
+}

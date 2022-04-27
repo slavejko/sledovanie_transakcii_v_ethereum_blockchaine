@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ethfind</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://d3js.org/d3.v3.min.js"></script>  
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br> <br> <br> <br> <br> 
+        <h1>E t h f i n d</h1>
+        <input type="text" id="myText" placeholder="Zadaj Adresu: 0x7f268357A8c2552623316e2562D90e642bB538E5" size="75">
+        <br> <br> 
+        <input type="text" id="myHlbka" placeholder="Zadaj hĺbku (default 5)" size="21">
+        <input type="text" id="mySirka" placeholder="Zadaj šírku (default 10)" size="21">
+        <input type="text" id="mySmer" placeholder="Zadaj smer (to / from)" size="21">
+        <br> <br>
+
+        <label for="start">Zaciatok:</label>
+        <input type="date" id="startDate"
+            value="2022-03-01"
+        min="2022-03-01" max="2022-03-31">
+
+        <label for="start">Koniec:</label>
+        <input type="date" id="endDate"
+            value="2022-03-31"
+        min="2022-03-01" max="2022-03-31">
+
+        <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+
+        <button type="button" id="myBtn">Zobraz vysledky</button>
+        <script src="./js/dava_saver.js"></script>
+
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
+        <a href="./html/o_programe.html" target="_self">O programe</a>
+        <br>
+        <a href="./html/pomoc.html" target="_self">Pomoc</a>
+        <p>Bratislava, 2022</p>
+        <style>
+            body {
+                background-color: white;
+                color: black;
+                text-align: center;
+            }
+        </style>
+    </body>
+</html>

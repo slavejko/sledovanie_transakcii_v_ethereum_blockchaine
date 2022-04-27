@@ -19,6 +19,7 @@ The following things are necessary in order to run this script successfully.
 - [npm](https://www.npmjs.com/) - comes installed with Node.js
   - [D3](https://www.npmjs.com/package/d3) library - for graphical representation of results and interaction with said results
   - [express](https://expressjs.com/en/starter/installing.html) library - necessary for running the webserver
+  - [mongodb](https://www.npmjs.com/package/mongodb) library - necessary for communicating with MongoDB database
 - Running instance of MongoDB database with data
 
 ## Setup
@@ -40,7 +41,7 @@ const uri = "mongodb://localhost:27017";                    // to change the add
 const dbName = "ethereum_data";                             // to change the name of the database       
 const collection_to = "data_to";                            // to change collection name for direction "TO" (incoming)
 const collection_from = "data_from";                        // to change collection name for direction "FROM" (outgoing)
-const publicFolder = "preDemo";                             // to change the name of the public folder containing frontend
+const publicFolder = "public";                              // to change the name of the public folder containing frontend
 const appPort = 3000;                                       // to change the port of endpoint
 ```
 
