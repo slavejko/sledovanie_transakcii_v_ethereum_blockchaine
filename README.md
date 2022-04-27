@@ -48,7 +48,7 @@ const appPort = 3000;                                       // to change the por
 
 ## Running the script
 
-After modifying the code (if necessary), the application can be started by running from the directory which contains the file [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js):
+After modifying the code (if necessary), the application can be started by navigation into the **/src** directory, and from there running the [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js) file:
 
 ```bash
 node server.js
