@@ -191,10 +191,6 @@ function createGraphFrom(myData, sirka, hlbka, poleSum){
                 .on('mouseout', function(d){
                     d3.select(this).style("fill", "black");
                 })
-                .on("dblclick", function(d){
-                    var win = window.open("index.html", '_blank');
-                    win.focus();
-                })
         })
         .on('mouseout', function(d,i){
             d3.select(this).transition()
@@ -312,10 +308,6 @@ function createGraphTo(myData, width, depth, nodeSumEth){
                 })
                 .on('mouseout', function(d){
                     d3.select(this).style("fill", "black");
-                })
-                .on("dblclick", function(d){
-                    var win = window.open("index.html", '_blank');
-                    win.focus();
                 })
         })
         .on('mouseout', function(d,i){

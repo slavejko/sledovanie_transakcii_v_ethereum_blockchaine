@@ -63,6 +63,7 @@ async function getData(inputAddr, depth, width, direction, startDate, endDate) {
 
         var firstArrLength = firstOutputArray[0].tx.length > width ? width : firstOutputArray[0].tx.length;
 
+        // Checks if first search and its transactions were in the date range
         for(let ir = 0; ir < firstArrLength; ir++){
             if(checkTimestamp(startDate, firstOutputArray[0].tx[ir], endDate)){
                 myResultArray.push(firstOutputArray[0].tx[ir]);
@@ -79,6 +80,8 @@ async function getData(inputAddr, depth, width, direction, startDate, endDate) {
         for(let dpth = 0; dpth < depth -1; dpth++){
             tmp_ar = [];
             for(let dpthTx = 0; dpthTx < myResultArray.length; dpthTx++){
+
+                // Checks if the transaction is wihtin the input date range
                 if(checkTimestamp(startDate, myResultArray[dpthTx], endDate)){
 
                     if(direction == "to"){
