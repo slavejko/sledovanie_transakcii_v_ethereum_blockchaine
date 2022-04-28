@@ -7,6 +7,7 @@ const collection_to = "data_to";                            // to change collect
 const collection_from = "data_from";                        // to change collection name for direction "FROM" (outgoing)
 const publicFolder = "public";                              // to change the name of the public folder containg frontend
 const appPort = 3000;                                       // to change the port of endpoint
+const apiUrl = '/api';                                      // to change the url of the endpoint
 
 
 // Prints out logs of objects returned
@@ -122,7 +123,7 @@ app.use(express.json());
 
 
 // Listens for post request on '/api'
-app.post('/api', (request, response) => {
+app.post(apiUrl, (request, response) => {
     var inDepth = request.body.depth;
     var inWidth = request.body.width;
 
