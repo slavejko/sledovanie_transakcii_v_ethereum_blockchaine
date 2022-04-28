@@ -34,7 +34,7 @@ npm install
 
 ## Code modification
 
-If you wish to change the parameters, for example to change the port for the webserver, you can do this as shown below in the [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine) file.
+If you wish to change the parameters, for example to change the port for the webserver, you can do this as shown below in the [**server.js**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/server/src/server.js) file.
 
 ```python
 const uri = "mongodb://localhost:27017";                    // to change the address and port of the database
@@ -43,6 +43,7 @@ const collection_to = "data_to";                            // to change collect
 const collection_from = "data_from";                        // to change collection name for direction "FROM" (outgoing)
 const publicFolder = "public";                              // to change the name of the public folder containing frontend
 const appPort = 3000;                                       // to change the port of endpoint
+const apiUrl = '/api';                                      // to change the url of the endpoint
 ```
 
 
