@@ -57,4 +57,4 @@ node server.js
 
 ## Detailed code explanation
 
-Detailed code explanation can be found [**here**]().
+Detailed code explanation can be found [**here**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/code_explanation.md).
