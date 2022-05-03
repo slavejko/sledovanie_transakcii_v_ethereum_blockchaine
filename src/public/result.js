@@ -404,7 +404,9 @@ function createMasterArr(masterIn){
     return masterOut
 }
 
-
+// Source: 
+//      https://typeofnan.dev/an-easy-way-to-build-a-tree-with-object-references/
+//
 // Function to reduce array into the shape that is needed for graphical representation
 function reduceArrayFunc(masterArray){
     const reducedMasterArray = [];
