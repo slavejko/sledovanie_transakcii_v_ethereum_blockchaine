@@ -201,6 +201,20 @@ function createGraphFrom(myData, sirka, hlbka, poleSum){
                 .duration('50')
                 .style('opracity', '0');
         })
+        .on('contextmenu', function(d, i){
+            d3.event.preventDefault();
+            canvas.select("text").text(function(){
+                for(let pls = 0; pls < nodeSumEth.length; pls++){
+                    if(nodeSumEth[pls].id == d.id){
+                        return `Prijatá suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+                    }
+                }
+                return "Žiadna suma nebola prijatá";
+            }).remove()
+            canvas.select("text").text(function(){
+                return d.id;
+            }).remove()
+        })
 
     node.append("circle")
         .attr("r", cSize)
@@ -310,7 +324,7 @@ function createGraphTo(myData, width, depth, nodeSumEth){
                     d3.select(this).style("fill", "black");
                 })
         })
-        .on('mouseout', function(d,i){
+        .on('mouseout', function(d, i){
             d3.select(this).transition()
                 .duration(50)
                 .attr('opacity', '1')
@@ -318,6 +332,20 @@ function createGraphTo(myData, width, depth, nodeSumEth){
             div.transition()
                 .duration('50')
                 .style('opracity', '0');
+        })
+        .on('contextmenu', function(d, i){
+            d3.event.preventDefault();
+            canvas.select("text").text(function(){
+                for(let pls = 0; pls < nodeSumEth.length; pls++){
+                    if(nodeSumEth[pls].id == d.id){
+                        return `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+                    }
+                }
+                return "Žiadna suma nebola odoslaná";
+            }).remove()
+            canvas.select("text").text(function(){
+                return d.id;
+            }).remove()
         })
 
     node.append("circle")
