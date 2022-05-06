@@ -107,16 +107,17 @@ function getModifier(depth, width, direction){
 
 
 // Function to create graph for "FROM" direction (outgoing transactions)
-function createGraphFrom(myData, sirka, hlbka, poleSum){
+function createGraphFrom(myData, width, depth, nodeSumEth){
 
-    const offsetX = getOffsetX(hlbka, "from");
-    const offsetY = getOffsetY(sirka, "from");
+    const offsetX = getOffsetX(depth, "from");
+    const offsetY = getOffsetY(width, "from");
     const offsetTextX = 30;
     const offsetTextY = 120;
-    const size = getGraphSize(hlbka);
+    const size = getGraphSize(depth);
     const cSize = 13;
-    var cHeight = (getModifier(hlbka, sirka, "from") * size);
+    var cHeight = (getModifier(depth, width, "from") * size);
     var clickNum = 0;
+    var del_array = [];
 
     console.log("Stromová štruktúra / Tree structure");
     console.log(myData);
@@ -171,9 +172,9 @@ function createGraphFrom(myData, sirka, hlbka, poleSum){
                 .attr('x', d3.event.pageX - (offsetX + offsetTextX))
                 .attr('y', d3.event.pageY - (offsetY + myDOffsetY))
                 .text(function(){
-                    for(let pls = 0; pls < poleSum.length; pls++){
-                        if(poleSum[pls].id == d.id){
-                            return `Prijatá suma: ${poleSum[pls].value.toFixed(20)} ETH`;
+                    for(let pls = 0; pls < nodeSumEth.length; pls++){
+                        if(nodeSumEth[pls].id == d.id){
+                            return `Prijatá suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
                         }
                     }
                     return "Žiadna suma nebola prijatá";
@@ -201,19 +202,68 @@ function createGraphFrom(myData, sirka, hlbka, poleSum){
                 .duration('50')
                 .style('opracity', '0');
         })
+        .on('dblclick', function(d, i){
+            canvas.selectAll("text").remove();
+
+            for(let thisNode = 0; thisNode < del_array.length; thisNode++){
+                canvas.append("text")
+                    .attr('x', del_array[thisNode].aX)
+                    .attr('y', del_array[thisNode].aY)
+                    .text(function(){
+                        return del_array[thisNode].txtSum;
+                    })
+
+                canvas.append("text")
+                    .attr('x', del_array[thisNode].aX)
+                    .attr('y', del_array[thisNode].aY - del_array[thisNode].yTxtOffset)
+                    .text(function() {
+                        return del_array[thisNode].txtWllt
+                    })
+                }
+                del_array = [];
+        })
         .on('contextmenu', function(d, i){
             d3.event.preventDefault();
-            canvas.select("text").text(function(){
-                for(let pls = 0; pls < nodeSumEth.length; pls++){
-                    if(nodeSumEth[pls].id == d.id){
-                        return `Prijatá suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
-                    }
+            
+            var thisTxtSum = "";
+            var isDelDuplicate = false;
+
+            for(let pls = 0; pls < nodeSumEth.length; pls++){
+                if(nodeSumEth[pls].id == d.id){
+                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
                 }
-                return "Žiadna suma nebola prijatá";
-            }).remove()
-            canvas.select("text").text(function(){
-                return d.id;
-            }).remove()
+            }
+
+            if(thisTxtSum == ""){
+                thisTxtSum = "Žiadna suma nebola odoslaná";
+            }
+
+            if(del_array.length == 0){
+                del_array.push({
+                    aX: d3.event.pageX - (offsetX + offsetTextX),
+                    aY: d3.event.pageY - (offsetY + offsetTextY),
+                    txtSum: thisTxtSum,
+                    yTxtOffset: 20,
+                    txtWllt: d.id
+                });
+            }
+
+            for(let ckx = 0; ckx < del_array.length; ckx++){
+                if(del_array[ckx].txtWllt == d.id){
+                    isDelDuplicate = true;
+                }
+            }
+
+            if(!isDelDuplicate){
+                del_array.push({
+                    aX: d3.event.pageX - (offsetX + offsetTextX),
+                    aY: d3.event.pageY - (offsetY + offsetTextY),
+                    txtSum: thisTxtSum,
+                    yTxtOffset: 20,
+                    txtWllt: d.id
+                });
+            }
+            console.log(del_array);
         })
 
     node.append("circle")
@@ -247,6 +297,8 @@ function createGraphTo(myData, width, depth, nodeSumEth){
     const cSize = 13;
     var clickNum = 0;
     const cHeight = (getModifier(depth, width, "to") * size);
+
+    var del_array = [];
 
     console.log("Stromová štruktúra / Tree structure");
     console.log(myData);
@@ -333,19 +385,68 @@ function createGraphTo(myData, width, depth, nodeSumEth){
                 .duration('50')
                 .style('opracity', '0');
         })
+        .on('dblclick', function(d, i){
+            canvas.selectAll("text").remove();
+
+            for(let thisNode = 0; thisNode < del_array.length; thisNode++){
+                canvas.append("text")
+                    .attr('x', del_array[thisNode].aX)
+                    .attr('y', del_array[thisNode].aY)
+                    .text(function(){
+                        return del_array[thisNode].txtSum;
+                    })
+
+                canvas.append("text")
+                    .attr('x', del_array[thisNode].aX)
+                    .attr('y', del_array[thisNode].aY - del_array[thisNode].yTxtOffset)
+                    .text(function() {
+                        return del_array[thisNode].txtWllt
+                    })
+                }
+                del_array = [];
+        })
         .on('contextmenu', function(d, i){
             d3.event.preventDefault();
-            canvas.select("text").text(function(){
-                for(let pls = 0; pls < nodeSumEth.length; pls++){
-                    if(nodeSumEth[pls].id == d.id){
-                        return `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
-                    }
+            
+            var thisTxtSum = "";
+            var isDelDuplicate = false;
+
+            for(let pls = 0; pls < nodeSumEth.length; pls++){
+                if(nodeSumEth[pls].id == d.id){
+                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
                 }
-                return "Žiadna suma nebola odoslaná";
-            }).remove()
-            canvas.select("text").text(function(){
-                return d.id;
-            }).remove()
+            }
+
+            if(thisTxtSum == ""){
+                thisTxtSum = "Žiadna suma nebola odoslaná";
+            }
+
+            if(del_array.length == 0){
+                del_array.push({
+                    aX: d3.event.pageX - (offsetX + offsetTextX),
+                    aY: d3.event.pageY - (offsetY + offsetTextY),
+                    txtSum: thisTxtSum,
+                    yTxtOffset: 20,
+                    txtWllt: d.id
+                });
+            }
+
+            for(let ckx = 0; ckx < del_array.length; ckx++){
+                if(del_array[ckx].txtWllt == d.id){
+                    isDelDuplicate = true;
+                }
+            }
+
+            if(!isDelDuplicate){
+                del_array.push({
+                    aX: d3.event.pageX - (offsetX + offsetTextX),
+                    aY: d3.event.pageY - (offsetY + offsetTextY),
+                    txtSum: thisTxtSum,
+                    yTxtOffset: 20,
+                    txtWllt: d.id
+                });
+            }
+            console.log(del_array);
         })
 
     node.append("circle")
@@ -574,9 +675,9 @@ asyncPostData(inputWallet, inputWidth, inputDepth, inputDirection, inputStart, i
 
     // Gets the amount of ETH send / received for each node
     if(inputDirection == "to"){
-        var poleSum = getNodesSumIncoming(p);
+        var ethNodeSum = getNodesSumIncoming(p);
     }else{
-        var poleSum = getNodesSumOutgoing(p); 
+        var ethNodeSum = getNodesSumOutgoing(p); 
     }
     
     // Creates data structures in order to correctly create the graph
@@ -586,9 +687,9 @@ asyncPostData(inputWallet, inputWidth, inputDepth, inputDirection, inputStart, i
 
     // Creates the graph based on the direction
     if(inputDirection == "to"){
-        createGraphTo(treeRootStruct, inputWidth, inputDepth, poleSum);
+        createGraphTo(treeRootStruct, inputWidth, inputDepth, ethNodeSum);
     }else if(inputDirection == "from"){
-        createGraphFrom(treeRootStruct, inputWidth, inputDepth, poleSum);
+        createGraphFrom(treeRootStruct, inputWidth, inputDepth, ethNodeSum);
     }
 
 });
