@@ -75,7 +75,10 @@ Graph is interactive, meaning by clicking on each node additional information ca
 
 By **right-clicking** on the node the information from that node will be temporarily saved and if you wish to display only those saved nodes, you can do this by **double-clicking** on any node. **Double-click** will remove all text that is present currently and display saved text to the node that it belongs to. After **double-click** is performed, temporary array which held this information will be wiped. 
 
-![result page](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/right_click.gif)
+
+<p align="center">
+  <img src="https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/right_click.gif" alt="animated" />
+</p>
 
 Explanation is also available in Slovak language in the application itself.
 
