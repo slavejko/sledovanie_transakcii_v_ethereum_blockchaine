@@ -55,6 +55,30 @@ After modifying the code (if necessary), the application can be started by navig
 node server.js
 ```
 
+## Application tips and usage
+
+To use the application, as mentioned previously you will need to have a source of data. That can be done via importing demo data from branch [**data**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/tree/data). 
+
+After the application is running, you should be able to see homepage of the application:
+
+![homepage](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/homepage.png)
+
+From there, you can navigate to page *About the project* or *Help*, both of which are currently in Slovak language. 
+
+If you wish to create a graph, you will need to input a valid wallet address into the address input field. Depth and width is by default 5 and 10, respectively. Also, you will need to input in which direction you want the graph to be created. Accepted values are **to** and **from**. Default date range is for the entire month of March, since demo data is in this range, more specifically only for the 19th of March.
+
+After submitting input values, if they are correct and are present in the database, the result page will be displayed:
+
+![result page](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/result_page.png)
+
+Graph is interactive, meaning by clicking on each node additional information can be displayed. 
+
+By **right-clicking** on the node the information from that node will be temporarily saved and if you wish to display only those saved nodes, you can do this by **double-clicking** on any node. **Double-click** will remove all text that is present currently and display saved text to the node that it belongs to. After **double-click** is performed, temporary array which held this information will be wiped. 
+
+![result page](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/right-click.gif)
+
+Explanation is also available in Slovak language in the application itself.
+
 ## Detailed code explanation
 
 Detailed code explanation can be found [**here**](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/code_explanation.md).
