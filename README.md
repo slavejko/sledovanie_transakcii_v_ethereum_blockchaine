@@ -18,4 +18,4 @@ The installation process for each branch is described in that branch's readme fi
 
 
 ## License
-[MIT](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/LICENSE)
+[GNU General Public License v3.0](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/LICENSE)
