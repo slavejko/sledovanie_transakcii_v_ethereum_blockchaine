@@ -11,6 +11,7 @@ This branch contains exported data, which can be used for demonstration of the a
 
 There is a need to have a database to store data to. We used [MongoDB](https://www.mongodb.com/try/download/community) community server, and if you want to replicate this project, we highly suggest the same database. Once the database is running, you can import the data.
 
+
 ## Import - via [MongoDBCompass](https://www.mongodb.com/products/compass)
 
 To import through [MongoDBCompass](https://www.mongodb.com/products/compass), you will need to create a database, a collection and there is an option to import data either from *.csv* file or from *.json* file. We exported our data as *.json*, so this option would be usable here.
@@ -42,3 +43,10 @@ Parameters to specifiy:
 - FILE - path to the file
 
 Full list of parameters and further usage can be found [**here**](https://www.mongodb.com/docs/database-tools/mongoimport/).
+
+
+## Troubleshooting
+
+If errors occur, we advise importing via [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/), since this has proven to be working every time. 
+
+With some files we came across few issues while importing with the [MongoDBCompass](https://www.mongodb.com/products/compass), which resulted in failure to import and no data present in the database. Importing the same file with [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) was successful and the data was available in the database. 
