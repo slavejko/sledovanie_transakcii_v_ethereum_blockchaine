@@ -65,7 +65,7 @@ After the application is running, you should be able to see homepage of the appl
 
 From there, you can navigate to page *About the project* or *Help*, both of which are currently in Slovak language. 
 
-If you wish to create a graph, you will need to input a valid wallet address into the address input field. Depth and width is by default 5 and 10, respectively. Also, you will need to input in which direction you want the graph to be created. Accepted values are **to** and **from**. Default date range is for the entire month of March, since demo data is in this range, more specifically only for the 19th of March.
+If you wish to create a graph, you will need to input a valid wallet address into the address input field. Depth and width is by default 5 and 10, respectively. Also, you will need to input in which direction you want the graph to be created. Accepted values are **to** and **from**. Default date range is for the entire month of March, since demo data is in this range, more specifically only for the 19th of March 2022.
 
 After submitting input values, if they are correct and are present in the database, the result page will be displayed:
 
