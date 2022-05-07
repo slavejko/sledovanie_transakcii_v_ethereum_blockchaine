@@ -17,11 +17,11 @@ To import through [MongoDBCompass](https://www.mongodb.com/products/compass), yo
 
 After creating new database with collection, importing data can be done via ***Import data*** button in the middle of the screen, or by clicking on ***ADD DATA*** button on the left side of the screen, and choosing *Import File*.
 
-![import data](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/data/screenshots/empty_collection.png)
+![import data](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/empty_collection.png)
 
 After choosing file and selection *.json* option, click on *Import*. If it successful, you will see a screen similar to the one show below. 
 
-![import data](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/data/screenshots/import_success.png)
+![import data](https://github.com/slavejko/sledovanie_transakcii_v_ethereum_blockchaine/blob/main/screenshots/import_success.png)
 
 ## Import - via [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/)
 
