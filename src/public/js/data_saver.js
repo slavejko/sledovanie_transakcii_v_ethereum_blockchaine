@@ -16,7 +16,7 @@ document.getElementById("myBtn").onclick = function(){
     localStorage.setItem("depth", depth);
     localStorage.setItem("direction", direction);
     localStorage.setItem("inputStartDate", (new Date(startDate)).getTime());                // convert into timestamp
-    localStorage.setItem("inputEndDate", ((new Date(endDate)).getTime() + 86399999));       // +86399999ms => EoD
+    localStorage.setItem("inputEndDate", ((new Date(endDate)).getTime() + 86399999));       // +86 399 999ms => End of given day
 
     var proceed = true;
 
@@ -39,6 +39,6 @@ document.getElementById("myBtn").onclick = function(){
     }
 
     if(proceed){
-        window.open('../result.html','_blank');                                                // opens the result page
+        window.open('../result.html','_blank');                                                // opens the result page in the new tab
     }
 }

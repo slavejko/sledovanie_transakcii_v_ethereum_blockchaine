@@ -164,6 +164,8 @@ function createGraphFrom(myData, width, depth, nodeSumEth){
                 .duration('50')
                 .style('opracity', '1');
 
+
+            // Puts second click above the node
             if(clickNum % 2 == 0){
                 myDOffsetY += 70;
             }
@@ -172,13 +174,13 @@ function createGraphFrom(myData, width, depth, nodeSumEth){
                 .attr('x', d3.event.pageX - (offsetX + offsetTextX))
                 .attr('y', d3.event.pageY - (offsetY + myDOffsetY))
                 .text(function(){
-                    for(let pls = 0; pls < nodeSumEth.length; pls++){
-                        if(nodeSumEth[pls].id == d.id){
-                            return `Prijatá suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+                    for(let tNode = 0; tNode < nodeSumEth.length; tNode++){
+                        if(nodeSumEth[tNode].id == d.id){
+                            return `Prijatá suma: ${nodeSumEth[tNode].value.toFixed(20)} ETH`;
                         }
                     }
                     return "Žiadna suma nebola prijatá";
-                });
+                })
 
             canvas.append("text")
                 .attr('x', d3.event.pageX - (offsetX + offsetTextX))
@@ -193,7 +195,7 @@ function createGraphFrom(myData, width, depth, nodeSumEth){
                     d3.select(this).style("fill", "black");
                 })
         })
-        .on('mouseout', function(d,i){
+        .on('mouseout', function(d, i){
             d3.select(this).transition()
                 .duration(50)
                 .attr('opacity', '1')
@@ -228,9 +230,9 @@ function createGraphFrom(myData, width, depth, nodeSumEth){
             var thisTxtSum = "";
             var isDelDuplicate = false;
 
-            for(let pls = 0; pls < nodeSumEth.length; pls++){
-                if(nodeSumEth[pls].id == d.id){
-                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+            for(let tNode = 0; tNode < nodeSumEth.length; tNode++){
+                if(nodeSumEth[tNode].id == d.id){
+                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[tNode].value.toFixed(20)} ETH`;
                 }
             }
 
@@ -297,12 +299,10 @@ function createGraphTo(myData, width, depth, nodeSumEth){
     const cSize = 13;
     var clickNum = 0;
     const cHeight = (getModifier(depth, width, "to") * size);
-
     var del_array = [];
 
     console.log("Stromová štruktúra / Tree structure");
     console.log(myData);
-    console.log("");
 
     var canvas = d3.select("body").append("svg")
         .attr("width", cHeight)
@@ -347,6 +347,8 @@ function createGraphTo(myData, width, depth, nodeSumEth){
                 .duration('50')
                 .style('opracity', '1');
 
+
+            // Puts second click above the node
             if(clickNum % 2 == 0){
                 myDOffsetY += 70;
             }
@@ -355,9 +357,9 @@ function createGraphTo(myData, width, depth, nodeSumEth){
                 .attr('x', d3.event.pageX - (offsetX + offsetTextX))
                 .attr('y', d3.event.pageY - (offsetY + myDOffsetY))
                 .text(function(){
-                    for(let pls = 0; pls < nodeSumEth.length; pls++){
-                        if(nodeSumEth[pls].id == d.id){
-                            return `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+                    for(let tNode = 0; tNode < nodeSumEth.length; tNode++){
+                        if(nodeSumEth[tNode].id == d.id){
+                            return `Odoslaná suma: ${nodeSumEth[tNode].value.toFixed(20)} ETH`;
                         }
                     }
                     return "Žiadna suma nebola odoslaná";
@@ -411,9 +413,9 @@ function createGraphTo(myData, width, depth, nodeSumEth){
             var thisTxtSum = "";
             var isDelDuplicate = false;
 
-            for(let pls = 0; pls < nodeSumEth.length; pls++){
-                if(nodeSumEth[pls].id == d.id){
-                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[pls].value.toFixed(20)} ETH`;
+            for(let tNode = 0; tNode < nodeSumEth.length; tNode++){
+                if(nodeSumEth[tNode].id == d.id){
+                    thisTxtSum = `Odoslaná suma: ${nodeSumEth[tNode].value.toFixed(20)} ETH`;
                 }
             }
 
@@ -576,8 +578,8 @@ function getNodesSumOutgoing(data){
         }
     }
 
-    function retUniq(value, index, self) {
-        return self.indexOf(value) === index;
+    function retUniq(val, i, self) {
+        return self.indexOf(val) === i;
     }
 
     var uAddr = uniqueAddrs.filter(retUniq);
@@ -648,40 +650,40 @@ var inputEnd = localStorage.getItem("inputEndDate");
 
 
 // Calls async function, which return data (or error code on unsuccessful retrieval), and then calls additional functions to display graphical output
-asyncPostData(inputWallet, inputWidth, inputDepth, inputDirection, inputStart, inputEnd).then(p => {
+asyncPostData(inputWallet, inputWidth, inputDepth, inputDirection, inputStart, inputEnd).then(rawData => {
 
     // Checks for error code
-    if(p == -14){
+    if(rawData == -14){
         alert(`Peňaženka ${inputWallet} nemá žiadne dostupné dáta v zadanom dátumovom rozsahu.`);
         window.close();
         return null;
     }
 
-    if(p == -99){
+    if(rawData == -99){
         alert(`Chyba spracovania - nastala chyba pri spracovaní dát. Skúste inú akciu alebo opakujte neskôr.`)
         window.close();
         return null;
     }
     
-    if(p.length == 0){
+    if(rawData.length == 0){
         alert(`Peňaženka ${inputWallet} nemá žiadne dostupné dáta. Skúste znovu s inou vstupnou adresou.`);
         window.close();
         return null;
     }
 
     console.log("Prijaté data / Received data");
-    console.log(p);
+    console.log(rawData);
     console.log("");
 
     // Gets the amount of ETH send / received for each node
     if(inputDirection == "to"){
-        var ethNodeSum = getNodesSumIncoming(p);
+        var ethNodeSum = getNodesSumIncoming(rawData);
     }else{
-        var ethNodeSum = getNodesSumOutgoing(p); 
+        var ethNodeSum = getNodesSumOutgoing(rawData); 
     }
     
     // Creates data structures in order to correctly create the graph
-    var baseTreeStructure = createBaseTrStructure(p, inputWallet, inputDirection);
+    var baseTreeStructure = createBaseTrStructure(rawData, inputWallet, inputDirection);
     var masterArr = createMasterArr(baseTreeStructure);
     var treeRootStruct = reduceArrayFunc(masterArr);
 
@@ -691,5 +693,4 @@ asyncPostData(inputWallet, inputWidth, inputDepth, inputDirection, inputStart, i
     }else if(inputDirection == "from"){
         createGraphFrom(treeRootStruct, inputWidth, inputDepth, ethNodeSum);
     }
-
 });

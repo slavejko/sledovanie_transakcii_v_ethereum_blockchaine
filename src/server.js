@@ -119,7 +119,7 @@ async function getData(inputAddr, depth, width, direction, startDate, endDate) {
 
 
 // Starts the server and listens on port
-app.listen(appPort, () => console.log(`Server spustený - počúva na porte 3000`));
+app.listen(appPort, () => console.log(`Server spustený - počúva na porte ${appPort}`));
 // Exposes public folder
 app.use(express.static(publicFolder));
 app.use(express.json());
